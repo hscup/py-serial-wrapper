@@ -56,7 +56,7 @@ class ComConnection(object):
         """
         serial_numbers = []
         for pinfo in comports():
-            if pinfo.serial_number == serial_number:
+            if str(pinfo.serial_number).strip() == str(serial_number).strip():
                 return pinfo.device
             # save list of serial numbers for user reference
             serial_numbers.append(pinfo.serial_number.encode('utf-8'))
